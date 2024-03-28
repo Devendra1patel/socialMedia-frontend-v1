@@ -1,0 +1,42 @@
+.input-f{
+    width:40%;
+    height: 35px;
+    font-size: medium;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90px;
+    background-color: aquamarine;
+}
+.button{
+    /* width:100px; */
+    height: 30px;
+    background-color:aqua;
+    color:black;
+    border-radius: 8px;
+    transition: all 0.1s;
+}
+.button:hover{
+    /* scale: 110%; */
+}
+.button:active{
+    background-color: aquamarine;
+    scale: 110%;
+}
+
+.container-chat-mess{
+    margin: 20px auto 0 auto;
+    background-color: yellow;
+    width: 60vw;
+    height: 100vh;
+    scroll-behavior: smooth;
+    
+}
+.chat-p{
+    color:black;
+}
