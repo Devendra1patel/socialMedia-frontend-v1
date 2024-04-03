@@ -33,6 +33,16 @@ export const sendMess_withUpdate = createAsyncThunk('currentChat/sendMess_withUp
       throw error;
     }
   });
+export const sendMess_single = createAsyncThunk('currentChat/sendMess_single', async (props) => {
+    try {
+      // console.log('Data received by sendMess_sing:',props.singleMessage);
+      const {data} = await axios.post(`http://localhost:2551/message/send`,props.singleMessage);
+      return data;
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+      throw error;
+    }
+  });
 
 const CurrentChatSlice = createSlice({
     name: 'currentChat',
@@ -81,6 +91,10 @@ const CurrentChatSlice = createSlice({
       .addCase(sendMess_withUpdate.fulfilled, (state, action) => {
         console.log('Data by dispatch findUser:', action.payload);
         state.messages = action.payload;
+      })
+      .addCase(sendMess_single.fulfilled, (state, action) => {
+        console.log('Data by dispatch sendMessage single:', action.payload);
+        // state.messages = action.payload;
       })
       
     },
