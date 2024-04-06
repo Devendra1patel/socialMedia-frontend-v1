@@ -30,6 +30,7 @@ const ChatRigth = () => {
   const dispatch = useDispatch();
   
   useEffect( ()=>{
+    // socket.emit("online",{chatId,userId,followId})
     async function fetch_follow_user(){
       const  user_data  = await axios.get(`http://localhost:2551/user/search?followUsername=${followUsername}&userId=${userId}`);
       if(user_data.data.status){

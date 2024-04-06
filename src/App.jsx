@@ -10,6 +10,9 @@ import Auth from "./pages/auth.jsx";
 import Navbar from "./component/Navbar.jsx";
 import Chat from "./pages/Chat.jsx";
 import { useState } from "react";
+import ProfileUser from "./component/profile/ProfileUser.jsx";
+import Notification from "./component/notification/Notification.jsx";
+import FirstHome from "./pages/firstHome.jsx";
 // import { set } from "mongoose";
 
 function App() {
@@ -32,9 +35,12 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/message" element={<FirstHome/>}></Route>
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/profile/:username" element={<ProfileUser/>} ></Route> 
             <Route path="/auth" element={<Auth />}></Route>
             <Route path="/chat" element={<Chat />}></Route>
+            <Route path="/notification" element={<Notification/>} />
           </Routes>
         </BrowserRouter>
       )}

@@ -1,0 +1,7 @@
+.scrollbar-profile{
+
+}
+
+scrollbar-profile::-webkit-scrollbar {
+    display: none;
+}

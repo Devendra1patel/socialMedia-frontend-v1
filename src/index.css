@@ -6,25 +6,29 @@
     .btn-primary-sm {
       @apply  text-sm p-1 h-fit bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-75;
     }
+    .scrollbar-profile{
+        @apply scroll-smooth 
+      }
+    
+      .scrollbar-profile::-webkit-scrollbar {
+          width: 0px;
+          height: 0;
+      }
+       
+      /* Track */
+      .scrollbar-profile::-webkit-scrollbar-track {
+          background: #e5e1e1;
+          width: 0;
+      }
+       
+      /* Handle */
+      .scrollbar-profile::-webkit-scrollbar-thumb {
+          background: #141414;
+          
+      }
+       
+      /* Handle on hover */
+      .scrollbar-profile::-webkit-scrollbar-thumb:hover {
+          background: #555;
+      }
   }
-
- ::-webkit-scrollbar {
-    width: 10px;
-}
- 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f8f7f7;
-    border-radius: 1px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #787878;
-    border-radius: 5px;
-}
- 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}

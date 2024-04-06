@@ -1,37 +1,46 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import FriendShipStatus from '../reusable_com/friendship_status';
 
-const ShortSearchProfile = ({serachedData}) => {
-    console.log("userdata",serachedData.username);
-    const text = {
-        1:"follow",
-        2:"following",
-        3:"requested"
-    }
+const ShortSearchProfile = ({serachedData, setSearchedData}) => {
+  const navigate = useNavigate();
+    console.log("userdata",serachedData);
+    // const text = {
+    //     1:"follow",
+    //     2:"following",
+    //     3:"requested"
+    // }
+  function openProfile()
+  {
+    // console.log("navigation ran--",serachedData.id)
+    navigate(`/profile/${serachedData.username}`);
+  }
+
   return (
-    <div className="flex justify-around items-center bg-white my-5 py ">
-            <img
-              className="w-12 h-12 rounded-full ml-3"
-              src="https://images.unsplash.com/photo-1508919801845-fc2ae1bc2a28?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1nfGVufDB8fDB8fHww"
-            ></img>
-            <div className="ml-5">
-              <h2 className="font-semibold">
-                {/* {data != null ? data.username : "Devendra1_0"} */}
-                {/* Devenddra */}
-                {serachedData.username}
-              </h2>
-              <p>{serachedData.fullname}</p>
-            </div>
-            { serachedData.status==null ?<Btn text={text[1]}/>:serachedData.status==true?<Btn text={text[2]}/>: <Btn text={text[3]}/> }
-    </div>
+    <>
+    { serachedData ?
+      <div className="flex justify-around items-center bg-blue-300 my-5 py w-full " onClick={()=>openProfile()}>
+              <img
+                className="w-12 h-12 rounded-full ml-3"
+                src="https://images.unsplash.com/photo-1508919801845-fc2ae1bc2a28?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1nfGVufDB8fDB8fHww"
+              ></img>
+              <div className="ml-5">
+                <h2 className="font-semibold">
+                  {/* {data != null ? data.username : "Devendra1_0"} */}
+                  {/* Devenddra */}
+                  {serachedData.username}
+                </h2>
+                <p>{serachedData.fullname}</p>
+              </div>
+              <FriendShipStatus status={serachedData.status} userData={serachedData} setUserData={setSearchedData} />
+      </div>
+      :
+      <h4>User Not Found</h4>
+    }
+    </>
   )
 }
-const Btn = ({text}) =>{
-    return (
-        <>
-           <button className='btn-primary-sm'>{text}</button>
-        </>
-    )
-}
+
 
 export default ShortSearchProfile
